@@ -1,12 +1,16 @@
 public class Facil extends Recorrido {
 
-    @Override
-    public int tamanio() {
-        return 0;
+    public Facil(double distancia) {
+        super(distancia);
     }
 
     @Override
-    public int puntaje() {
-        return 0;
+    public double calcularTiempoEstimado() {
+        return distancia / 30.0;
+    }
+
+    @Override
+    public double calcularPuntaje() {
+        return 2 * distancia;
     }
 }
