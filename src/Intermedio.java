@@ -1,8 +1,9 @@
 public class Intermedio extends Recorrido{
     public boolean pendienteAscendente;
 
-    public Intermedio(double distancia) {
+    public Intermedio(double distancia, boolean pendienteAscendente) {
         super(distancia);
+        this.pendienteAscendente = pendienteAscendente;
     }
 
     @Override
