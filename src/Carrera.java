@@ -35,6 +35,25 @@ public class Carrera {
         return ciclistaMayorTiempo;
     }
 
+    public List<Ciclista> obtenerPuntajeMayorA30(){
+        List<Ciclista> resultado = new ArrayList<>();
+        for (Ciclista ciclista : ciclistas){
+                if (ciclista.calcularPuntajeTotal() > 30 && recorridoFacil(ciclista) == 0){
+                    resultado.add(ciclista);
+                }
+        }
+        return resultado;
+    }
+
+    private int recorridoFacil(Ciclista ciclista) {
+        for (Recorrido recorrido : ciclista.recorridos){
+            if (recorrido instanceof Facil){
+                return 1;
+            }
+        }
+        return 0;
+    }
+
     public boolean algunCiclistaTerminaraEnMenosDe2Horas() {
         for (Ciclista ciclista : ciclistas) {
             if (ciclista.completaraEnMenosDe2Horas()) {

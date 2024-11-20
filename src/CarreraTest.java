@@ -54,4 +54,30 @@ public class CarreraTest {
 
         assertTrue(carrera.algunCiclistaTerminaraEnMenosDe2Horas());
     }
+    @Test
+    public void testObtenerPuntajeMayorA30() {
+        Carrera carrera = new Carrera();
+
+        Ciclista ciclista1 = new Ciclista("Juan", 25, false);
+        Ciclista ciclista2 = new Ciclista("Ana", 30, true);
+        Ciclista ciclista3 = new Ciclista("Luis", 28, false);
+
+        ciclista1.agregarRecorrido(new Intermedio(100, true));
+        ciclista1.agregarRecorrido(new Dificil(60, 3));
+
+        ciclista2.agregarRecorrido(new Intermedio(150, true));
+        ciclista2.agregarRecorrido(new Dificil(100, 4));
+
+        ciclista3.agregarRecorrido(new Facil(100));
+        ciclista3.agregarRecorrido(new Intermedio(150, false));
+
+        carrera.agregarCiclista(ciclista1);
+        carrera.agregarCiclista(ciclista2);
+        carrera.agregarCiclista(ciclista3);
+
+        List<Ciclista> ciclistasFiltrados = carrera.obtenerPuntajeMayorA30();
+
+        assertEquals(2, ciclistasFiltrados.size());
+        assertEquals("Juan", ciclistasFiltrados.get(0).getNombre());
+    }
 }

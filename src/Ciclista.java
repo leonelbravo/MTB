@@ -26,6 +26,7 @@ public class Ciclista {
         return esExperto ? puntaje * 0.9 : puntaje;
     }
 
+
     public double calcularTiempoTotal() {
         double tiempoTotal = 0;
         for (Recorrido recorrido : recorridos) {
